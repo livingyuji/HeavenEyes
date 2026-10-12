@@ -135,6 +135,12 @@ public class PlayerDataManager {
         } catch (IOException e) {
             plugin.getLogger().warning("Failed to update evidence.yml for " + uuid + ": " + e.getMessage());
         }
+
+        if (plugin.getDiscordIntegration() != null) {
+            PlayerProfile profile = profileCache.get(uuid);
+            String name = profile != null ? profile.getLastKnownName() : uuid.toString();
+            plugin.getDiscordIntegration().sendPlayerHistory(uuid, name, "Evidence Indexed", "Incident " + incidentId + " (" + checkName + ")");
+        }
     }
 
     public List<String> getPlayerEvidenceList(UUID uuid) {

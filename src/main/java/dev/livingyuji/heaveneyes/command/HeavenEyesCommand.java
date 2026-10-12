@@ -190,6 +190,8 @@ public class HeavenEyesCommand implements CommandExecutor, TabCompleter {
         sendMessage(sender, "&7Status: &aActive &8| &7Active Checks: &a" + plugin.getCheckManager().getEnabledCount() + "&7/&f" + plugin.getCheckManager().getAllChecks().size());
         sendMessage(sender, "&7Active Bans: &c" + plugin.getBanManager().getActiveBansCount() + " &8| &7Cached Incidents: &e" + plugin.getEvidenceManager().getCachedIncidentsCount());
         sendMessage(sender, "&7LuckPerms Integration: " + (plugin.getLuckPermsIntegration().isAvailable() ? "&aConnected" : "&7Unavailable (Soft-Depend)"));
+        String discordStatus = (plugin.getDiscordIntegration() != null && plugin.getDiscordIntegration().isEnabled()) ? "&aEnabled" : "&7Disabled";
+        sendMessage(sender, "&7Discord Webhooks: " + discordStatus);
         sendMessage(sender, "&8&m----------------------------------------------------");
     }
 

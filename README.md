@@ -100,7 +100,28 @@
 
 ---
 
-## 5. Build Instructions
+## 5. Discord Webhook Integration (Quick Setup)
+
+Heaven Eyes includes a native, non-blocking Discord webhook notification pipeline with zero server performance impact:
+
+1. Open your Discord server and navigate to your staff category.
+2. Create dedicated channels (e.g. `#ac-alerts`, `#ac-punishments`, `#ac-history`, `#ac-system`).
+3. In channel settings, select **Integrations** > **Webhooks** > **New Webhook**.
+4. Name the webhook (e.g. `Heaven Eyes`) and click **Copy Webhook URL**.
+5. Open your Minecraft server directory and navigate to `plugins/HeavenEyes/config.yml`.
+6. Set `discord.enabled: true`.
+7. Paste your webhook URL into `discord.webhook-urls.alerts` and other channel fields as desired. (You may use the same webhook URL for all channels).
+8. Adjust `alerts.minimum-violation-level` (default `3`) to control alert threshold.
+9. Tune `alerts.cooldown-seconds` (default `10s`) to prevent alert spam.
+10. Verify delivery parameters (`retry-enabled: true`, `queue-capacity: 1000`).
+11. Save `config.yml` and execute `/he reload` in-game or from console.
+12. Run `/he status` to confirm Discord Webhooks status shows **Enabled**.
+
+For full architectural details, embed schemas, rate-limit policies, and troubleshooting, refer to [Discord Integration Documentation](docs/DISCORD_INTEGRATION.md).
+
+---
+
+## 6. Build Instructions
 
 Requirements: Java 21, Gradle wrapper.
 
@@ -108,12 +129,13 @@ Requirements: Java 21, Gradle wrapper.
 .\gradlew.bat clean test build
 ```
 
-Compiled output: `build/libs/HeavenEyes-1.0.0.jar`
+Compiled output: `build/libs/HeavenEyes-1.0.0.jar` (also mirrored in `dist/HeavenEyes-1.0.0.jar`).
 
 ---
 
-## 6. Documentation Directory
+## 7. Documentation Directory
 
+- [Discord Webhook Integration](docs/DISCORD_INTEGRATION.md)
 - [Command Reference](docs/COMMANDS.md)
 - [Permissions Reference](docs/PERMISSIONS.md)
 - [Configuration Guide](docs/CONFIGURATION.md)
@@ -124,7 +146,8 @@ Compiled output: `build/libs/HeavenEyes-1.0.0.jar`
 
 ---
 
-## 7. Copyright & License
+## 8. Copyright & License
 
 Copyright (c) 2026 LivingYuji. All rights reserved.  
 Original materials licensed under proprietary all-rights-reserved terms. See [COPYRIGHT.md](COPYRIGHT.md) and [LICENSE](LICENSE) for details.
+

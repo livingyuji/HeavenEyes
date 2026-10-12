@@ -147,6 +147,11 @@ public class BanManager implements Listener {
             });
         }
 
+        // Send Discord punishment embed
+        if (plugin.getDiscordIntegration() != null) {
+            plugin.getDiscordIntegration().sendBan(record);
+        }
+
         return record;
     }
 
@@ -159,6 +164,10 @@ public class BanManager implements Listener {
 
             plugin.getAuditLogger().logAction(String.format("BAN_PARDONED id=%s player=%s(%s) actor=%s reason='%s'",
                     active.getBanId(), active.getPlayerName(), playerUuid, actor, reason));
+
+            if (plugin.getDiscordIntegration() != null) {
+                plugin.getDiscordIntegration().sendUnban(active, actor, reason);
+            }
             return true;
         }
         return false;
@@ -175,6 +184,10 @@ public class BanManager implements Listener {
 
                 plugin.getAuditLogger().logAction(String.format("BAN_PARDONED id=%s player=%s(%s) actor=%s reason='%s'",
                         record.getBanId(), record.getPlayerName(), record.getPlayerUuid(), actor, reason));
+
+                if (plugin.getDiscordIntegration() != null) {
+                    plugin.getDiscordIntegration().sendUnban(record, actor, reason);
+                }
                 return record;
             }
         }

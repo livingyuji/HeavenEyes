@@ -33,8 +33,20 @@ All notable changes to the Heaven Eyes anti-cheat project will be documented in 
   - Comprehensive tab completion for every command and subcommand.
   - Real-time staff violation alerts with configurable per-player cooldowns.
 
+- **Discord Webhook Integration:**
+  - Asynchronous, non-blocking webhook delivery pipeline powered by Java 21 `HttpClient`.
+  - Configurable routing for live anti-cheat alerts, disciplinary action logs, player history audits, and system status notices.
+  - Rate limit handling with automatic queue pause and retry on HTTP 429 using `Retry-After`.
+  - Bounded delivery queue (1000 capacity) preventing server memory leaks during outages.
+  - Exponential backoff retry engine for transient network failures.
+  - Per-player per-check duplicate alert suppression cooldowns.
+  - Strict mention injection protection (`allowed_mentions` empty array) and zero-width mention sanitation.
+  - Sensitive token masking across logs, console output, and status displays.
+  - Dynamic player head avatar thumbnails rendered from player UUIDs (`mc-heads.net`).
+
 - **Integrations & Data Management:**
   - Direct LuckPerms API permission assignment and revocation on user data without creating ranks.
   - Compressed zip backup generation (`/he backup`).
   - Human-readable player audit file export (`/he export <player>`).
   - Automated data retention preview and cleanup (`/he cleanup <preview|run>`).
+

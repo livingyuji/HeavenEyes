@@ -69,6 +69,11 @@ public class PunishmentEngine {
         // Save incident evidence
         String incidentId = plugin.getEvidenceManager().saveIncident(violation, action.name(), null);
 
+        // Dispatch Discord live alert if configured
+        if (plugin.getDiscordIntegration() != null) {
+            plugin.getDiscordIntegration().sendAlert(player, check, violation, incidentId, action.name());
+        }
+
         // If check is REVIEW only, we record and alert, but do not automatically punish
         if (action == CheckAction.REVIEW) {
             return;
@@ -131,6 +136,10 @@ public class PunishmentEngine {
             player.sendMessage(net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer.legacySection().deserialize(msg));
 
             plugin.getAlertManager().sendActionAlert(player, "WARNING " + warning.getCount() + "/" + maxWarnings, check.getName());
+
+            if (plugin.getDiscordIntegration() != null) {
+                plugin.getDiscordIntegration().sendWarning(player, warning, maxWarnings);
+            }
         } else {
             // Warning limit reached -> automatic tempban
             playerTimestamps.put(check.getType(), now);
@@ -169,6 +178,10 @@ public class PunishmentEngine {
 
         plugin.getAuditLogger().logAction(String.format("KICK_EXECUTED player=%s(%s) reason='%s' incident=%s",
                 player.getName(), player.getUniqueId(), reason, incidentId));
+
+        if (plugin.getDiscordIntegration() != null) {
+            plugin.getDiscordIntegration().sendKick(player.getName(), player.getUniqueId(), reason, incidentId, "HeavenEyes");
+        }
     }
 
     public void cleanup(UUID uuid) {

@@ -4,6 +4,7 @@ import dev.livingyuji.heaveneyes.alerts.AlertManager;
 import dev.livingyuji.heaveneyes.check.CheckManager;
 import dev.livingyuji.heaveneyes.command.HeavenEyesCommand;
 import dev.livingyuji.heaveneyes.config.*;
+import dev.livingyuji.heaveneyes.discord.DiscordIntegration;
 import dev.livingyuji.heaveneyes.evidence.EvidenceManager;
 import dev.livingyuji.heaveneyes.integration.LuckPermsIntegration;
 import dev.livingyuji.heaveneyes.punishment.BanManager;
@@ -49,6 +50,7 @@ public class HeavenEyesPlugin extends JavaPlugin implements Listener {
     private CleanupManager cleanupManager;
     private AlertManager alertManager;
     private LuckPermsIntegration luckPermsIntegration;
+    private DiscordIntegration discordIntegration;
 
     private BukkitTask decayTask;
 
@@ -96,6 +98,10 @@ public class HeavenEyesPlugin extends JavaPlugin implements Listener {
         this.punishmentEngine = new PunishmentEngine(this);
         this.luckPermsIntegration = new LuckPermsIntegration(this);
 
+        // Initialize Discord integration
+        this.discordIntegration = new DiscordIntegration(this);
+        this.discordIntegration.initialize();
+
         // Register check systems
         this.checkManager = new CheckManager(this);
         this.checkManager.registerAll();
@@ -136,6 +142,10 @@ public class HeavenEyesPlugin extends JavaPlugin implements Listener {
             decayTask = null;
         }
 
+        if (discordIntegration != null) {
+            discordIntegration.shutdown();
+        }
+
         if (banManager != null) {
             banManager.saveBans();
         }
@@ -172,6 +182,11 @@ public class HeavenEyesPlugin extends JavaPlugin implements Listener {
         checkManager.loadConfigurations(YamlConfiguration.loadConfiguration(checksFile));
 
         banManager.loadBans();
+
+        if (discordIntegration != null) {
+            discordIntegration.reload();
+        }
+
         auditLogger.logAction("CONFIGURATION_RELOADED");
     }
 
@@ -226,4 +241,5 @@ public class HeavenEyesPlugin extends JavaPlugin implements Listener {
     public CleanupManager getCleanupManager() { return cleanupManager; }
     public AlertManager getAlertManager() { return alertManager; }
     public LuckPermsIntegration getLuckPermsIntegration() { return luckPermsIntegration; }
+    public DiscordIntegration getDiscordIntegration() { return discordIntegration; }
 }

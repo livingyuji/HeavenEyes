@@ -41,3 +41,58 @@ audit:
   enabled: true
   file: "audit/audit.log"
   log-console-actions: true
+
+# ============================================================
+# DISCORD INTEGRATION SETTINGS
+# ============================================================
+discord:
+  # Master toggle for Discord Webhook integration
+  enabled: false
+
+  # Server name displayed in embed footers and headers
+  server-name: "Heaven Eyes Survival"
+
+  # Webhook URLs for dedicated channels (keep private; never commit secrets)
+  webhook-urls:
+    # Channel for real-time suspicious violation alerts
+    alerts: ""
+    # Channel for punishments (warnings, kicks, temporary/permanent bans, unbans)
+    punishments: ""
+    # Channel for player history audit records
+    history: ""
+    # Channel for system lifecycle logs (startup, shutdown, critical errors)
+    system-logs: ""
+
+  # Live violation alert settings
+  alerts:
+    enabled: true
+    # Minimum violation level (VL) required to send a Discord embed
+    minimum-violation-level: 3
+    # Cooldown in seconds between alerts for the same player and check
+    cooldown-seconds: 10
+    # Group repeated detections within cooldown to avoid Discord spam
+    batch-repeated-alerts: true
+
+  # Punishment logging settings
+  punishments:
+    enabled: true
+    log-warnings: true
+    log-kicks: true
+    log-temporary-bans: true
+    log-permanent-bans: true
+    log-unbans: true
+
+  # Supplementary player history audit events
+  player-history:
+    enabled: true
+
+  # System status and critical plugin error logs
+  system-logs:
+    enabled: true
+
+  # Asynchronous delivery and backoff retry configuration
+  delivery:
+    asynchronous: true
+    retry-enabled: true
+    max-retries: 5
+    queue-capacity: 1000
