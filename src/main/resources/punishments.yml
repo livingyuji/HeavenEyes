@@ -1,0 +1,32 @@
+# ============================================================
+#            HEAVEN EYES — PUNISHMENTS CONFIGURATION
+#                     Author: LivingYuji
+# ============================================================
+
+punishments:
+  # Whether automatic punishment execution is enabled globally
+  automatic: true
+  # Number of confirmed warnings before applying an automatic temporary ban
+  warnings-before-tempban: 3
+  # Duration for the automatic temporary ban
+  tempban-duration: "30m"
+  # Duration after which unused warnings are expired and cleared
+  warning-reset-after: "24h"
+  # Always persist an incident evidence file prior to executing punishment
+  save-evidence-before-punishment: true
+  # Cooldown window to aggregate repeated detections of the same category
+  repeated-detection-window: "60s"
+  # Check must meet its configured minimum-confidence before issuing warning or ban
+  require-confidence-threshold: true
+  # Immediate kick for severe, high-confidence violations
+  severe-kick-enabled: true
+  # Whether continued severe cheating applies temporary ban
+  severe-tempban-enabled: true
+  # Safeguard to prevent multiple punishments being queued in the same tick window
+  prevent-duplicate-punishments: true
+
+  # Configurable player notification messages
+  warning-message: "&cHeaven Eyes &7detected suspicious activity. Warning &e{count}&7/&c{maximum}&7."
+  kick-message: "&cHeaven Eyes &7removed you for severe suspicious activity.\n&7Incident: &e{incident_id}"
+  tempban-message: "&cHeaven Eyes &7temporarily banned you for &e{duration}&7.\n&7Reason: &f{reason}\n&7Ban ID: &e{ban_id}\n&7Expires in: &e{remaining}"
+  permban-message: "&cHeaven Eyes &7permanently suspended your access.\n&7Reason: &f{reason}\n&7Ban ID: &e{ban_id}"

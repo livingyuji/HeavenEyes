@@ -1,0 +1,73 @@
+# ============================================================
+#              HEAVEN EYES — MESSAGES CONFIGURATION
+#                     Author: LivingYuji
+# ============================================================
+
+messages:
+  prefix: "&cHeaven Eyes &8» &7"
+
+  # General and Public
+  no-permission: "&cYou do not have permission to execute this command."
+  player-only: "&cThis command can only be executed by in-game players."
+  unknown-command: "&cUnknown Heaven Eyes command. Type &e/he help &cfor available commands."
+  player-not-found: "&cPlayer &e{player} &cwas not found."
+  invalid-duration: "&cInvalid duration specified &e'{input}'&c. Format example: 30m, 1h, 24h, 7d."
+  invalid-ban-id: "&cInvalid or non-existent Ban ID: &e{id}&c."
+  reload-success: "&aHeaven Eyes configuration and checks reloaded successfully in &e{time}ms&a."
+
+  # Status and Version
+  version: "&7Running &cHeaven Eyes &7version &a{version} &7by &e{author}&7."
+  status:
+    header: "&8&m----------------&r &cHeaven Eyes Status &8&m----------------"
+    platform: "&7Platform: &f{platform} &8| &7Java: &f{java}"
+    uptime: "&7Status: &aActive &8| &7Active Checks: &a{checks_enabled}&7/&f{checks_total}"
+    records: "&7Active Bans: &c{bans_count} &8| &7Cached Incidents: &e{incidents_count}"
+    luckperms: "&7LuckPerms Integration: {luckperms_status}"
+    footer: "&8&m----------------------------------------------------"
+
+  # Report
+  report-sent: "&aThank you. Your report against &e{target} &afor &f'{reason}' &ahas been submitted to staff."
+  report-alert: "&8[&cHE-REPORT&8] &e{reporter} &7reported &c{target}&7: &f{reason}"
+
+  # Staff Alerts
+  staff-alert: "&8[&cHeaven Eyes&8] &e{player} &7failed &c{check} &8(VL: &e{vl}&8, Conf: &a{confidence}%&8) &7- &f{details}"
+  staff-alert-action: "&8[&cHeaven Eyes&8] &cACTION: &e{action} &7issued to &c{player}&7. (&e{info}&7)"
+
+  # Staff Management
+  staff-added: "&aAdded &e{player} &ato Heaven Eyes staff alerts list."
+  staff-removed: "&cRemoved &e{player} &cfrom Heaven Eyes staff alerts list."
+  staff-already: "&e{player} &cis already on the staff alerts list."
+  staff-not-found: "&e{player} &cis not on the staff alerts list."
+  staff-list-header: "&8&m--------&r &cHeaven Eyes Staff List &8&m--------"
+  staff-list-entry: "&7- &e{player} &8[&7Alerts: {status}&8]"
+  alerts-toggled: "&7Staff violation alerts are now {status}&7."
+
+  # Permissions Management (LuckPerms)
+  perm-luckperms-unavailable: "&cLuckPerms is not installed or enabled on this server. Permission commands require LuckPerms."
+  perm-invalid-node: "&cInvalid permission node &e'{node}'&c. Cannot assign root '*' or administrative wildcards."
+  perm-no-self-admin: "&cYou cannot grant yourself administrative permissions."
+  perm-added: "&aSuccessfully granted permission &e{node} &ato &f{player}&a."
+  perm-removed: "&aSuccessfully revoked permission &e{node} &afrom &f{player}&a."
+  perm-already-has: "&e{player} &7already possesses permission &e{node}&7."
+  perm-does-not-have: "&e{player} &7does not possess permission &e{node}&7."
+  perm-list-header: "&8&m--------&r &cPermissions for &e{player} &8&m--------"
+  perm-list-entry: "&7- &f{node} &8[&aActive&8]"
+  perm-check-result: "&7Player &e{player} &7has &e{node}&7: {status}"
+
+  # Ban & Punishments
+  kick-success: "&aPlayer &e{player} &awas kicked for &f'{reason}'&a."
+  ban-success: "&aPlayer &e{player} &awas permanently banned with Ban ID &e{ban_id}&a."
+  tempban-success: "&aPlayer &e{player} &awas temporarily banned for &e{duration} &awith Ban ID &e{ban_id}&a."
+  unban-success: "&aPlayer &e{player} &awas unbanned. Active ban &e{ban_id} &apardoned."
+  player-not-banned: "&e{player} &cis not currently banned."
+  exempt-added: "&aPlayer &e{player} &ais now exempt from anti-cheat checks."
+  exempt-removed: "&cPlayer &e{player} &ais no longer exempt from anti-cheat checks."
+
+  # Checks
+  check-toggled: "&7Check &e{check} &7is now {status}&7."
+  check-not-found: "&cCheck &e'{check}' &cwas not found. Type &e/he checks &cfor a list."
+
+  # Help Menu
+  help-header: "&8&m----------------&r &cHeaven Eyes Commands &8&m----------------"
+  help-entry: "&e{command} &8- &7{description}"
+  help-footer: "&8&m----------------------------------------------------"

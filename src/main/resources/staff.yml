@@ -1,0 +1,12 @@
+# ============================================================
+#               HEAVEN EYES — STAFF CONFIGURATION
+#                     Author: LivingYuji
+# ============================================================
+
+# Staff members who receive alerts and have staff access
+staff:
+  # List of staff entries:
+  # - uuid: "00000000-0000-0000-0000-000000000000"
+  #   name: "Admin"
+  #   alerts: true
+  members: []

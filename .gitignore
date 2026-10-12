@@ -1,0 +1,22 @@
+# Gradle build and cache
+.gradle/
+build/
+
+# Compiled archives
+*.jar
+*.zip
+
+# Keep Gradle wrapper jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE configurations
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,43 @@
+# ============================================================
+#               HEAVEN EYES — ANTI-CHEAT CONFIGURATION
+#                     Author: LivingYuji
+# ============================================================
+
+settings:
+  # Enable detailed debug messages in console for check tuning
+  debug: false
+  # Global switch for real-time staff alerts
+  alerts-enabled: true
+  # Cooldown between alerts for the same player and check (e.g. 3s, 5s)
+  alert-cooldown: "3s"
+  # Whether non-staff players can run /he status to see safe status
+  public-status: true
+  # Server tick interval for background tasks (e.g. violation decay)
+  tick-interval: 20
+  # Rate-limiting window for repeated detection aggregation
+  repeated-detection-window: "60s"
+  # Default retention days for data cleanup
+  retention-days: 30
+  # Allow automatic backup creation on /he backup
+  backups:
+    enabled: true
+    max-backups: 10
+  # Incident evidence storage
+  evidence:
+    auto-save-on-warning: true
+    auto-save-on-punishment: true
+    max-in-memory-incidents: 500
+
+# Exemptions: players or groups exempt from anti-cheat checks
+exemptions:
+  # Player UUIDs or names explicitly exempt
+  players: []
+  # Automatically exempt creative and spectator gamemodes
+  exempt-creative: true
+  exempt-spectator: true
+
+# Audit logging
+audit:
+  enabled: true
+  file: "audit/audit.log"
+  log-console-actions: true

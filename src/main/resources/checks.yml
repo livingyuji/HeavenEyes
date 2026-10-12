@@ -1,0 +1,122 @@
+# ============================================================
+#              HEAVEN EYES — CHECKS CONFIGURATION
+#                     Author: LivingYuji
+# ============================================================
+
+checks:
+  # ------------------------------------------------------------
+  # MOVEMENT CATEGORY
+  # ------------------------------------------------------------
+  movement:
+    enabled: true
+    minimum-confidence: 0.90
+    automatic-action: "WARN_THEN_TEMPBAN"
+    violation-decay: 1
+    decay-interval-seconds: 15
+
+    speed:
+      enabled: true
+      max-horizontal-speed: 0.36
+      sprint-jump-multiplier: 1.45
+      speed-effect-multiplier: 0.20
+      ice-multiplier: 1.60
+      teleport-grace-ticks: 20
+      threshold-vl: 5
+
+    flight:
+      enabled: true
+      max-air-ticks: 30
+      max-ascent-rate: 0.42
+      levitation-allowance: true
+      threshold-vl: 4
+
+    nofall:
+      enabled: true
+      min-fall-distance: 3.5
+      threshold-vl: 3
+
+    timer:
+      enabled: true
+      max-packets-per-second: 24
+      threshold-vl: 6
+
+    step:
+      enabled: true
+      max-step-height: 0.60
+      threshold-vl: 4
+
+    velocity:
+      enabled: true
+      knockback-grace-ticks: 25
+      threshold-vl: 4
+
+  # ------------------------------------------------------------
+  # COMBAT CATEGORY
+  # ------------------------------------------------------------
+  combat:
+    enabled: true
+    minimum-confidence: 0.95
+    automatic-action: "WARN_THEN_TEMPBAN"
+    violation-decay: 1
+    decay-interval-seconds: 20
+
+    reach:
+      enabled: true
+      max-reach-distance: 3.80
+      survival-reach-margin: 0.40
+      threshold-vl: 4
+
+    killaura:
+      enabled: true
+      max-hit-angle: 90.0
+      multi-target-window-ms: 50
+      threshold-vl: 5
+
+    fastclick:
+      enabled: true
+      max-cps: 20
+      burst-threshold: 24
+      threshold-vl: 5
+
+    aimsnap:
+      enabled: true
+      max-angle-snap: 85.0
+      snap-consistency-samples: 4
+      threshold-vl: 4
+
+    criticals:
+      enabled: true
+      require-air-fall: true
+      threshold-vl: 3
+
+  # ------------------------------------------------------------
+  # MINING & X-RAY ANALYTICS CATEGORY (REVIEW ONLY BY DEFAULT)
+  # ------------------------------------------------------------
+  mining:
+    enabled: true
+    minimum-confidence: 0.95
+    automatic-action: "REVIEW"
+    min-sample-blocks: 60
+    diamond-ratio-threshold: 0.18
+    debris-ratio-threshold: 0.12
+    straight-line-mining-alert: true
+
+  # ------------------------------------------------------------
+  # ESP & CONTAINER INTERACTIONS (REVIEW ONLY BY DEFAULT)
+  # ------------------------------------------------------------
+  esp:
+    enabled: true
+    automatic-action: "REVIEW"
+    wall-occlusion-check: true
+    max-container-reach: 5.20
+    threshold-vl: 3
+
+  # ------------------------------------------------------------
+  # FREECAM INTERACTIONS (REVIEW ONLY BY DEFAULT)
+  # ------------------------------------------------------------
+  freecam:
+    enabled: true
+    automatic-action: "REVIEW"
+    max-interaction-distance: 6.0
+    body-movement-distance: 0.1
+    threshold-vl: 3

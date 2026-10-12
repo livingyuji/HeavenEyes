@@ -1,0 +1,144 @@
+name: HeavenEyes
+version: '1.0.0'
+main: dev.livingyuji.heaveneyes.HeavenEyesPlugin
+api-version: '1.21'
+author: LivingYuji
+description: Advanced server-side anti-cheat with evidence-based detection, automated enforcement, and staff management.
+softdepend:
+  - LuckPerms
+
+commands:
+  he:
+    description: Primary command for Heaven Eyes anti-cheat.
+    aliases:
+      - ac
+      - anticheat
+    usage: /he [subcommand]
+    permission: heaveneyes.help
+
+permissions:
+  heaveneyes.*:
+    description: Grants full administrative access to Heaven Eyes.
+    default: op
+    children:
+      heaveneyes.admin: true
+
+  heaveneyes.admin:
+    description: Full administration access to all Heaven Eyes features.
+    default: op
+    children:
+      heaveneyes.help: true
+      heaveneyes.version: true
+      heaveneyes.status: true
+      heaveneyes.alerts: true
+      heaveneyes.inspect: true
+      heaveneyes.violations: true
+      heaveneyes.evidence: true
+      heaveneyes.history: true
+      heaveneyes.mining: true
+      heaveneyes.baninfo: true
+      heaveneyes.punishments: true
+      heaveneyes.ban: true
+      heaveneyes.unban: true
+      heaveneyes.kick: true
+      heaveneyes.reload: true
+      heaveneyes.checks: true
+      heaveneyes.exempt: true
+      heaveneyes.staff: true
+      heaveneyes.permissions: true
+      heaveneyes.backup: true
+      heaveneyes.export: true
+      heaveneyes.cleanup: true
+      heaveneyes.report: true
+
+  heaveneyes.help:
+    description: Allows viewing the Heaven Eyes help menu.
+    default: true
+
+  heaveneyes.version:
+    description: Allows checking the Heaven Eyes plugin version.
+    default: true
+
+  heaveneyes.status:
+    description: Allows viewing safe public anti-cheat status.
+    default: true
+
+  heaveneyes.report:
+    description: Allows submitting suspicious player reports.
+    default: true
+
+  heaveneyes.alerts:
+    description: Allows receiving real-time staff violation alerts.
+    default: op
+
+  heaveneyes.inspect:
+    description: Allows inspecting player profile and runtime state.
+    default: op
+
+  heaveneyes.violations:
+    description: Allows viewing violation logs for players.
+    default: op
+
+  heaveneyes.evidence:
+    description: Allows viewing incident evidence files.
+    default: op
+
+  heaveneyes.history:
+    description: Allows viewing comprehensive player history.
+    default: op
+
+  heaveneyes.mining:
+    description: Allows viewing mining analytics and ore ratios.
+    default: op
+
+  heaveneyes.baninfo:
+    description: Allows viewing active and past ban information.
+    default: op
+
+  heaveneyes.punishments:
+    description: Allows viewing punishment history for a player.
+    default: op
+
+  heaveneyes.ban:
+    description: Allows executing temporary and permanent bans.
+    default: op
+
+  heaveneyes.unban:
+    description: Allows unbanning players and pardoning bans.
+    default: op
+
+  heaveneyes.kick:
+    description: Allows kicking players with anti-cheat reasons.
+    default: op
+
+  heaveneyes.reload:
+    description: Allows safely reloading Heaven Eyes configuration.
+    default: op
+
+  heaveneyes.checks:
+    description: Allows listing, toggling, and configuring checks.
+    default: op
+
+  heaveneyes.exempt:
+    description: Allows managing player anti-cheat exemptions.
+    default: op
+
+  heaveneyes.staff:
+    description: Allows managing the staff list and alert recipients.
+    default: op
+
+  heaveneyes.permissions:
+    description: Allows managing direct player permissions via LuckPerms.
+    default: op
+
+  heaveneyes.backup:
+    description: Allows generating data backups.
+    default: op
+
+  heaveneyes.export:
+    description: Allows exporting player audit reports.
+    default: op
+
+  heaveneyes.cleanup:
+    description: Allows previewing and executing data retention cleanups.
+    default: op
