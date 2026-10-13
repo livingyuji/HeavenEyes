@@ -3,7 +3,7 @@
 **Version:** 1.0.0  
 **Author / Creator:** LivingYuji  
 **Target Server:** Paper 1.21.x (Java 21)  
-**Main Command:** `/he` (Aliases: `/ac`, `/anticheat`)  
+**Main Command:** `/he` (Alias: `/anticheat`)  
 **Permission Prefix:** `heaveneyes.*`  
 **Distribution Artifact:** `HeavenEyes-1.0.0.jar`  
 

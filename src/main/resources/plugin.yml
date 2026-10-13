@@ -11,7 +11,6 @@ commands:
   he:
     description: Primary command for Heaven Eyes anti-cheat.
     aliases:
-      - ac
       - anticheat
     usage: /he [subcommand]
     permission: heaveneyes.help

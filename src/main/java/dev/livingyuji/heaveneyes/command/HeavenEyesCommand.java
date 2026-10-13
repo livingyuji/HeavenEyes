@@ -24,7 +24,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Main command executor and tab completer for /he, /ac, /anticheat.
+ * Main command executor and tab completer for /he, /anticheat.
  */
 public class HeavenEyesCommand implements CommandExecutor, TabCompleter {
 

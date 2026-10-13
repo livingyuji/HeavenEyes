@@ -1,7 +1,7 @@
 # COMMAND REFERENCE — HEAVEN EYES
 
 **Primary Command:** `/he`  
-**Aliases:** `/ac`, `/anticheat`  
+**Aliases:** `/anticheat`  
 **Author:** LivingYuji  
 **Platform:** Paper 1.21.x  
 
